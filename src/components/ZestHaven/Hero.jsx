@@ -1,7 +1,6 @@
 import heroJollof from "../../assets/hero-jollof.jpg";
 import {
   MapPin,
-  MessageCircle,
   ArrowRight,
 } from "lucide-react";
 
@@ -18,22 +17,23 @@ function Stat({ n, l }) {
 
 const Hero = () => {
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden">
+    <section id="top" aria-label="Hero" className="relative min-h-screen overflow-hidden">
       <img
         src={heroJollof}
-        alt="Steaming plate of Nigerian jollof rice with grilled chicken"
+        alt=""
         width={1920}
         height={1280}
         className="absolute inset-0 h-full w-full object-cover"
+        role="presentation"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
-      <div className="absolute inset-0 adire-pattern opacity-[0.07]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" aria-hidden="true" />
+      <div className="absolute inset-0 adire-pattern opacity-[0.07]" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:justify-center lg:pt-0">
         <div className="max-w-2xl">
           <div className="mt-12 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-background/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-gold backdrop-blur">
-            <MapPin className="h-3.5 w-3.5" />
-            Lagos · Nigeria
+            <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Lagos · Nigeria</span>
           </div>
 
           <h1 className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-8xl">
@@ -53,7 +53,7 @@ const Hero = () => {
               href="#menu"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
             >
-              View Menu <ArrowRight className="h-4 w-4" />
+              View Menu <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               href="#reserve"
@@ -63,10 +63,10 @@ const Hero = () => {
             </a>
           </div>
 
-          <div className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-6">
-            <Stat n="12+" l="Years cooking" />
-            <Stat n="40+" l="Signature dishes" />
-            <Stat n="4.9★" l="Guest rating" />
+          <div className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-6" role="list" aria-label="Restaurant highlights">
+            <div role="listitem"><Stat n="12+" l="Years cooking" /></div>
+            <div role="listitem"><Stat n="40+" l="Signature dishes" /></div>
+            <div role="listitem"><Stat n="4.9★" l="Guest rating" /></div>
           </div>
         </div>
       </div>

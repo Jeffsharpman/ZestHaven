@@ -13,14 +13,14 @@ function GalleryItem({ src, alt, className = "" }) {
         loading="lazy"
         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
     </div>
   );
 }
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="relative py-24 sm:py-32">
+    <section id="gallery" aria-label="Gallery" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-2xl">
           <SectionLabel>Gallery</SectionLabel>
@@ -29,27 +29,27 @@ const Gallery = () => {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          <GalleryItem
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" role="list">
+          <div role="listitem"><GalleryItem
             src={galleryInterior}
-            alt="Restaurant interior"
+            alt="Restaurant interior with warm lighting and traditional decor"
             className="row-span-2 aspect-[3/4] lg:aspect-auto"
-          />
-          <GalleryItem
+          /></div>
+          <div role="listitem"><GalleryItem
             src={gallerySpread}
-            alt="Nigerian food spread"
+            alt="Nigerian food spread with jollof rice and assorted dishes"
             className="col-span-1 aspect-square lg:col-span-2 lg:aspect-[2/1]"
-          />
-          <GalleryItem
+          /></div>
+          <div role="listitem"><GalleryItem
             src={galleryBar}
-            alt="Cocktail bar"
+            alt="Cocktail bar with ambient lighting"
             className="row-span-2 aspect-[3/4] lg:aspect-auto"
-          />
-          <GalleryItem
+          /></div>
+          <div role="listitem"><GalleryItem
             src={galleryGuests}
-            alt="Happy guests dining"
+            alt="Happy guests dining at ZestHaven Bukka"
             className="col-span-1 aspect-square lg:col-span-2 lg:aspect-[2/1]"
-          />
+          /></div>
         </div>
       </div>
     </section>

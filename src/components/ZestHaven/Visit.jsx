@@ -9,7 +9,7 @@ import SectionLabel from "./SectionLabel";
 function InfoRow({ icon: Icon, title, lines }) {
   return (
     <div className="flex gap-4">
-      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-gold/40 bg-card text-gold">
+      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-gold/40 bg-card text-gold" aria-hidden="true">
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">
@@ -26,12 +26,12 @@ function InfoRow({ icon: Icon, title, lines }) {
 
 const Visit = () => {
   return (
-    <section id="visit" className="relative py-24 sm:py-32">
+    <section id="visit" aria-label="Visit us" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant">
             <iframe
-              title="ZestHaven Bukka location"
+              title="Map showing ZestHaven Bukka location in Lekki Phase 1, Lagos"
               src="https://www.google.com/maps?q=Lekki+Phase+1,+Lagos,+Nigeria&output=embed"
               loading="lazy"
               className="aspect-square w-full grayscale-[0.2] sm:aspect-[4/3] lg:aspect-auto lg:h-full"
@@ -71,10 +71,10 @@ const Visit = () => {
               <a
                 href="https://wa.me/2349070281022"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm hover:scale-[1.03] transition-transform"
               >
-                <MessageCircle className="h-4 w-4" /> Order on WhatsApp
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> Order on WhatsApp
               </a>
               <a
                 href="#reserve"

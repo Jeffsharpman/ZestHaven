@@ -19,10 +19,10 @@ function Field({ label, ...props }) {
 const Reserve = () => {
   const [sent, setSent] = useState(false);
   return (
-    <section id="reserve" className="relative py-24 sm:py-32">
+    <section id="reserve" aria-label="Reservations" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <div className="relative overflow-hidden rounded-[2rem] border border-gold/30 bg-card p-8 sm:p-12 lg:p-16">
-          <div className="absolute inset-0 adire-pattern opacity-[0.06]" />
+          <div className="absolute inset-0 adire-pattern opacity-[0.06]" aria-hidden="true" />
           <div className="relative">
             <div className="max-w-2xl">
               <SectionLabel>Reservations</SectionLabel>
@@ -36,9 +36,9 @@ const Reserve = () => {
             </div>
 
             {sent ? (
-              <div className="mt-10 rounded-2xl border border-gold/40 bg-background/60 p-6 text-center">
+              <div className="mt-10 rounded-2xl border border-gold/40 bg-background/60 p-6 text-center" role="status" aria-live="polite">
                 <div className="font-display text-2xl text-gold">
-                  Thank you 🙏
+                  Thank you
                 </div>
                 <p className="mt-2 text-sm text-foreground/80">
                   Your reservation request has been received. We'll be in touch
@@ -52,19 +52,26 @@ const Reserve = () => {
                   setSent(true);
                 }}
                 className="mt-10 grid gap-5 sm:grid-cols-2"
+                noValidate
               >
                 <Field
                   label="Full name"
                   name="name"
                   placeholder="Adaeze Okafor"
+                  required
+                  aria-required="true"
                 />
                 <Field
                   label="Phone or email"
                   name="contact"
                   placeholder="+234 ..."
+                  type="text"
+                  inputMode="tel"
+                  required
+                  aria-required="true"
                 />
-                <Field label="Date" name="date" type="date" />
-                <Field label="Time" name="time" type="time" />
+                <Field label="Date" name="date" type="date" required aria-required="true" />
+                <Field label="Time" name="time" type="time" required aria-required="true" />
                 <Field
                   label="Guests"
                   name="guests"
@@ -72,6 +79,8 @@ const Reserve = () => {
                   min={1}
                   max={20}
                   defaultValue={2}
+                  required
+                  aria-required="true"
                 />
                 <Field
                   label="Occasion (optional)"
@@ -95,7 +104,7 @@ const Reserve = () => {
                   type="submit"
                   className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02]"
                 >
-                  Confirm Reservation <ArrowRight className="h-4 w-4" />
+                  Confirm Reservation <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </button>
               </form>
             )}

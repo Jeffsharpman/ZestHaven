@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { ArrowRight, MenuIcon, X } from "lucide-react";
 
 const NAV = [
@@ -9,6 +10,13 @@ const NAV = [
 ];
 
 const Nav = ({ open, setOpen, scrolled }) => {
+  const closeOnEscape = useCallback(
+    (e) => {
+      if (e.key === "Escape") setOpen(false);
+    },
+    [setOpen]
+  );
+
   return (
     <>
       <div
@@ -19,22 +27,23 @@ const Nav = ({ open, setOpen, scrolled }) => {
             : "bg-transparent"
           }
         `}
+        onKeyDown={closeOnEscape}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold shadow-warm">
+          <a href="#top" className="flex items-center gap-2" aria-label="ZestHaven Bukka — Home">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold shadow-warm" aria-hidden="true">
               Z
             </span>
             <span className="font-display text-xl font-semibold tracking-tight">
               ZestHaven
-              <span className="ml-1 text-gold">·</span>
+              <span className="ml-1 text-gold" aria-hidden="true">·</span>
               <span className="ml-1 text-sm font-normal text-muted-foreground">
                 Bukka
               </span>
             </span>
           </a>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-8 lg:flex">
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -51,25 +60,29 @@ const Nav = ({ open, setOpen, scrolled }) => {
               href="#reserve"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:scale-[1.03] "
             >
-              Reserve a Table <ArrowRight className="h-4 w-4" />
+              Reserve a Table <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
 
           <button
-            aria-label="Toggle menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen(!open)}
             className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card lg:hidden"
           >
             {open ? (
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5" aria-hidden="true" />
             ) : (
-              <MenuIcon className="h-5 w-5" />
+              <MenuIcon className="h-5 w-5" aria-hidden="true" />
             )}
           </button>
         </div>
 
-        {/* Mobile */}
         <div
+          id="mobile-menu"
+          role="navigation"
+          aria-label="Mobile navigation"
           className={`overflow-hidden border-b border-border/60 bg-background/95 backdrop-blur-xl transition-[max-height] duration-300 lg:hidden ${
             open ? "max-h-96" : "max-h-0"
           }`}
@@ -90,7 +103,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
             >
-              Reserve a Table <ArrowRight className="h-4 w-4" />
+              Reserve a Table <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>

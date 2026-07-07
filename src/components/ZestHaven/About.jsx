@@ -10,7 +10,7 @@ import {
 function Badge({ icon: Icon, text }) {
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-border bg-card/50 px-4 py-3 text-sm">
-      <Icon className="h-4 w-4 shrink-0 text-gold" />
+      <Icon className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
       <span className="text-foreground/85">{text}</span>
     </div>
   );
@@ -18,10 +18,10 @@ function Badge({ icon: Icon, text }) {
 
 const About = () => {
   return (
-    <section id="about" className="relative py-24 sm:py-32">
+    <section id="about" aria-label="About ZestHaven" className="relative py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
         <div className="relative order-2 lg:order-1">
-          <div className="absolute -left-4 -top-4 h-full w-full rounded-3xl border border-gold/30" />
+          <div className="absolute -left-4 -top-4 h-full w-full rounded-3xl border border-gold/30" aria-hidden="true" />
           <img
             src={founder}
             alt="Chef Amaka, founder of ZestHaven Bukka"
@@ -58,11 +58,11 @@ const About = () => {
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md">
-            <Badge icon={Leaf} text="Fresh, local sourcing" />
-            <Badge icon={Flame} text="Open-fire grilling" />
-            <Badge icon={ChefHat} text="Hand-pounded yam" />
-            <Badge icon={UtensilsCrossed} text="Generous portions" />
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md" role="list">
+            <div role="listitem"><Badge icon={Leaf} text="Fresh, local sourcing" /></div>
+            <div role="listitem"><Badge icon={Flame} text="Open-fire grilling" /></div>
+            <div role="listitem"><Badge icon={ChefHat} text="Hand-pounded yam" /></div>
+            <div role="listitem"><Badge icon={UtensilsCrossed} text="Generous portions" /></div>
           </div>
         </div>
       </div>

@@ -16,11 +16,11 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold" aria-hidden="true">
                 Z
               </span>
               <span className="font-display text-2xl">
-                ZestHaven <span className="text-gold">·</span> Bukka
+                ZestHaven <span className="text-gold" aria-hidden="true">·</span> Bukka
               </span>
             </div>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
@@ -45,7 +45,7 @@ const Footer = () => {
                   aria-label={label}
                   className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background/40 text-foreground/80 transition-all hover:border-gold hover:text-gold"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-4 w-4" aria-hidden="true" />
                 </a>
               ))}
             </div>

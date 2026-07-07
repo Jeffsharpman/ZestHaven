@@ -34,7 +34,7 @@ const TESTIMONIALS = [
 
 const Testimonials = () => {
   return (
-    <section className="relative py-24 sm:py-32">
+    <section aria-label="Testimonials" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <SectionLabel>
@@ -51,9 +51,9 @@ const Testimonials = () => {
               key={t.name}
               className="flex flex-col gap-5 rounded-3xl border border-border bg-card/60 p-6 transition-all hover:border-gold/50 hover:-translate-y-1"
             >
-              <div className="flex gap-1 text-gold">
+              <div className="flex gap-1 text-gold" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
+                  <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
                 ))}
               </div>
               <blockquote className="text-sm leading-relaxed text-foreground/85">

@@ -15,13 +15,19 @@ const App = () => {
   }, []);
   return (
     <>
-      <header>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:inset-x-0 focus:top-0 focus:bg-primary focus:text-primary-foreground focus:p-4 focus:text-center focus:text-sm focus:font-semibold focus:outline-none"
+      >
+        Skip to main content
+      </a>
+      <header role="banner">
         <Nav open={open} setOpen={setOpen} scrolled={scrolled} />
       </header>
-      <main>
+      <main id="main-content" role="main" tabIndex={-1}>
         <Home />
       </main>
-      <footer>
+      <footer role="contentinfo">
         <Footer />
       </footer>
     </>
