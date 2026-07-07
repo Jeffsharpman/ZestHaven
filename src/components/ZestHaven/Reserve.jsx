@@ -1,6 +1,12 @@
-import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useState, useRef } from "react";
+import { ArrowRight, Loader } from "lucide-react";
 import SectionLabel from "./SectionLabel";
+
+function encode(data) {
+  return Object.entries(data)
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+    .join("&");
+}
 
 function Field({ label, ...props }) {
   return (
@@ -17,7 +23,27 @@ function Field({ label, ...props }) {
 }
 
 const Reserve = () => {
-  const [sent, setSent] = useState(false);
+  const form = useRef(null);
+  const [state, setState] = useState("idle");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setState("sending");
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "reservation",
+          ...Object.fromEntries(new FormData(form.current)),
+        }),
+      });
+      setState("sent");
+    } catch {
+      setState("error");
+    }
+  };
+
   return (
     <section id="reserve" aria-label="Reservations" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
@@ -35,7 +61,7 @@ const Reserve = () => {
               </p>
             </div>
 
-            {sent ? (
+            {state === "sent" ? (
               <div className="mt-10 rounded-2xl border border-gold/40 bg-background/60 p-6 text-center" role="status" aria-live="polite">
                 <div className="font-display text-2xl text-gold">
                   Thank you
@@ -47,12 +73,15 @@ const Reserve = () => {
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                }}
+                ref={form}
+                name="reservation"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
                 className="mt-10 grid gap-5 sm:grid-cols-2"
               >
+                <input type="hidden" name="form-name" value="reservation" />
+
                 <Field
                   label="Full name"
                   name="name"
@@ -99,11 +128,22 @@ const Reserve = () => {
                   />
                 </div>
 
+                {state === "error" && (
+                  <p className="sm:col-span-2 text-sm text-destructive" role="alert">
+                    Something went wrong. Please try again or message us on WhatsApp.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02]"
+                  disabled={state === "sending"}
+                  className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Confirm Reservation <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  {state === "sending" ? (
+                    <><Loader className="h-4 w-4 animate-spin" aria-hidden="true" /> Sending…</>
+                  ) : (
+                    <>Confirm Reservation <ArrowRight className="h-4 w-4" aria-hidden="true" /></>
+                  )}
                 </button>
               </form>
             )}
