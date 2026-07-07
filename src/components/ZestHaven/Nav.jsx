@@ -27,7 +27,6 @@ const Nav = ({ open, setOpen, scrolled }) => {
             : "bg-transparent"
           }
         `}
-        onKeyDown={closeOnEscape}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
           <a href="#top" className="flex items-center gap-2" aria-label="ZestHaven Bukka — Home">
@@ -83,9 +82,11 @@ const Nav = ({ open, setOpen, scrolled }) => {
           id="mobile-menu"
           role="navigation"
           aria-label="Mobile navigation"
+          aria-hidden={!open}
           className={`overflow-hidden border-b border-border/60 bg-background/95 backdrop-blur-xl transition-[max-height] duration-300 lg:hidden ${
             open ? "max-h-96" : "max-h-0"
           }`}
+          onKeyDown={closeOnEscape}
         >
           <div className="flex flex-col gap-1 px-5 py-4">
             {NAV.map((n) => (

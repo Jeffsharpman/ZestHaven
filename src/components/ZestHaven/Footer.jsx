@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-display text-lg text-gold">Explore</div>
+            <h3 className="font-display text-lg text-gold">Explore</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {NAV.map((n) => (
                 <li key={n.href}>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <div className="font-display text-lg text-gold">Contact</div>
+            <h3 className="font-display text-lg text-gold">Contact</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>14 Admiralty Way</li>
               <li>Lekki Phase 1, Lagos</li>

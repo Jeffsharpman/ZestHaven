@@ -93,12 +93,11 @@ const Menu = () => {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Filter menu by category">
+        <div className="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter menu by category">
           {cats.map((c) => (
             <button
               key={c}
-              role="tab"
-              aria-selected={active === c}
+              aria-current={active === c ? "true" : undefined}
               onClick={() => setActive(c)}
               className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
                 active === c

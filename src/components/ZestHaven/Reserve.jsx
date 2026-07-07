@@ -52,7 +52,6 @@ const Reserve = () => {
                   setSent(true);
                 }}
                 className="mt-10 grid gap-5 sm:grid-cols-2"
-                noValidate
               >
                 <Field
                   label="Full name"
