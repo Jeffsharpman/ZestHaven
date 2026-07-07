@@ -5,6 +5,7 @@ import Gallery from "./ZestHaven/Gallery";
 import Testimonials from "./ZestHaven/Testimonials";
 import Visit from "./ZestHaven/Visit";
 import Reserve from "./ZestHaven/Reserve";
+import Contact from "./ZestHaven/Contact";
 import WhatsAppFab from "./ZestHaven/WhatsAppFab";
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <Testimonials />
       <Visit />
       <Reserve />
+      <Contact />
       <WhatsAppFab />
     </>
   );

@@ -7,6 +7,7 @@ const NAV = [
   { href: "#gallery", label: "Gallery" },
   { href: "#visit", label: "Visit" },
   { href: "#reserve", label: "Reserve" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const Footer = () => {
