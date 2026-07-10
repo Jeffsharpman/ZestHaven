@@ -73,7 +73,7 @@ const Visit = () => {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="wa.link/byhqkf"
+                href="https://wa.link/byhqkf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm hover:scale-[1.03] transition-transform"
