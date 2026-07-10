@@ -26,7 +26,11 @@ function InfoRow({ icon: Icon, title, lines }) {
 
 const Visit = () => {
   return (
-    <section id="visit" aria-label="Visit us" className="relative py-24 sm:py-32">
+    <section
+      id="visit"
+      aria-label="Visit us"
+      className="relative py-24 sm:py-32"
+    >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="overflow-hidden rounded-3xl border border-border shadow-elegant">
@@ -69,12 +73,13 @@ const Visit = () => {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="https://wa.me/2349070281022"
+                href="wa.link/byhqkf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm hover:scale-[1.03] transition-transform"
               >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" /> Order on WhatsApp
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> Order
+                on WhatsApp
               </a>
               <a
                 href="#reserve"
