@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChefHat,
   UtensilsCrossed,
@@ -7,6 +8,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import SectionLabel from "./SectionLabel";
+import ScrollReveal from "../UI/ScrollReveal";
+import useSmoothScroll from "../../hooks/useSmoothScroll";
 import dishJollof from "../../assets/dish-jollof.jpg";
 import dishEgusi from "../../assets/dish-egusi.jpg";
 import dishSuya from "../../assets/dish-suya.jpg";
@@ -68,6 +71,7 @@ const CATEGORIES = [
 
 const Menu = () => {
   const [active, setActive] = useState("All");
+  const { handleAnchorClick } = useSmoothScroll();
   const cats = ["All", ...CATEGORIES.map((c) => c.label)];
   const list =
     active === "All" ? DISHES : DISHES.filter((d) => d.cat === active);
@@ -75,25 +79,28 @@ const Menu = () => {
   return (
     <section id="menu" aria-label="Menu" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
-            <SectionLabel>Signature Dishes</SectionLabel>
-            <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              A menu that tastes like{" "}
-              <span className="italic text-gold">
-                home, plated like a celebration.
-              </span>
-            </h2>
+        <ScrollReveal animation="fadeUp">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <SectionLabel>Signature Dishes</SectionLabel>
+              <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                A menu that tastes like{" "}
+                <span className="italic text-gold">
+                  home, plated like a celebration.
+                </span>
+              </h2>
+            </div>
+            <a
+              href="#reserve"
+              onClick={handleAnchorClick}
+              className="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-gold hover:gap-3 transition-all"
+            >
+              Full menu on request <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
-          <a
-            href="#reserve"
-            className="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-gold hover:gap-3 transition-all"
-          >
-            Full menu on request <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
+        </ScrollReveal>
 
-        <div className="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter menu by category">
+        <ScrollReveal animation="fadeUp" delay={0.15} className="mt-10 flex flex-wrap gap-2" as="div" role="group" aria-label="Filter menu by category">
           {cats.map((c) => (
             <button
               key={c}
@@ -108,40 +115,48 @@ const Menu = () => {
               {c}
             </button>
           ))}
-        </div>
+        </ScrollReveal>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((d) => (
-            <article
-              key={d.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-gold/60 hover:shadow-elegant"
-            >
-              <div className="relative aspect-[5/4] overflow-hidden">
-                <img
-                  src={d.img}
-                  alt={d.name}
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-xs font-medium text-gold backdrop-blur">
-                  {d.cat}
-                </span>
-              </div>
-              <div className="p-6">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-xl">{d.name}</h3>
-                  <span className="shrink-0 font-display text-lg text-gold">
-                    {d.price}
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          <AnimatePresence mode="popLayout">
+            {list.map((d, i) => (
+              <motion.article
+                key={d.name}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.35, delay: i * 0.05 }}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-gold/60 hover:shadow-elegant"
+                role="listitem"
+              >
+                <div className="relative aspect-[5/4] overflow-hidden">
+                  <img
+                    src={d.img}
+                    alt={d.name}
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-xs font-medium text-gold backdrop-blur">
+                    {d.cat}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {d.desc}
-                </p>
-              </div>
-            </article>
-          ))}
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-display text-xl">{d.name}</h3>
+                    <span className="shrink-0 font-display text-lg text-gold">
+                      {d.price}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {d.desc}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>

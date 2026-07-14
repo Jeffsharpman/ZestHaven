@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Home from "./components/Home";
 import Nav from "./components/ZestHaven/Nav";
 import Footer from "./components/ZestHaven/Footer";
+import DeveloperSchema from "./components/SEO/DeveloperSchema";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -15,6 +16,12 @@ const App = () => {
   }, []);
   return (
     <>
+      <DeveloperSchema
+        projectName="ZestHaven Bukka"
+        projectUrl="https://zesthaven.netlify.app"
+        projectDescription="A modern Nigerian bukka in the heart of Lekki, Lagos. Built on family recipes, fresh markets and open fires."
+        technologies={["HTML", "CSS", "JavaScript", "React"]}
+      />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:inset-x-0 focus:top-0 focus:bg-primary focus:text-primary-foreground focus:p-4 focus:text-center focus:text-sm focus:font-semibold focus:outline-none"

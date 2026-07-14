@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { ArrowRight, MenuIcon, X } from "lucide-react";
+import useSmoothScroll from "../../hooks/useSmoothScroll";
 
 const NAV = [
   { href: "#about", label: "About" },
@@ -11,6 +12,8 @@ const NAV = [
 ];
 
 const Nav = ({ open, setOpen, scrolled }) => {
+  const { handleAnchorClick } = useSmoothScroll();
+
   const closeOnEscape = useCallback(
     (e) => {
       if (e.key === "Escape") setOpen(false);
@@ -18,10 +21,18 @@ const Nav = ({ open, setOpen, scrolled }) => {
     [setOpen]
   );
 
+  const handleNavClick = useCallback(
+    (e) => {
+      handleAnchorClick(e);
+      setOpen(false);
+    },
+    [handleAnchorClick, setOpen]
+  );
+
   return (
     <>
       <div
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300
           ${
           scrolled
             ? "bg-background/85 backdrop-blur-xl border-b border-border/60"
@@ -30,7 +41,12 @@ const Nav = ({ open, setOpen, scrolled }) => {
         `}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-          <a href="#top" className="flex items-center gap-2" aria-label="ZestHaven Bukka — Home">
+          <a
+            href="#top"
+            onClick={handleAnchorClick}
+            className="flex items-center gap-2"
+            aria-label="ZestHaven Bukka — Home"
+          >
             <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold shadow-warm" aria-hidden="true">
               Z
             </span>
@@ -48,6 +64,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
               <a
                 key={n.href}
                 href={n.href}
+                onClick={handleAnchorClick}
                 className="text-sm font-medium text-foreground/80 transition-colors hover:text-gold"
               >
                 {n.label}
@@ -58,6 +75,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="#reserve"
+              onClick={handleAnchorClick}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-warm transition-transform hover:scale-[1.03] "
             >
               Reserve a Table <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -94,7 +112,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
               <a
                 key={n.href}
                 href={n.href}
-                onClick={() => setOpen(false)}
+                onClick={handleNavClick}
                 className="rounded-lg px-3 py-3 text-base font-medium text-foreground/90 hover:bg-muted"
               >
                 {n.label}
@@ -102,7 +120,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
             ))}
             <a
               href="#reserve"
-              onClick={() => setOpen(false)}
+              onClick={handleNavClick}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
             >
               Reserve a Table <ArrowRight className="h-4 w-4" aria-hidden="true" />

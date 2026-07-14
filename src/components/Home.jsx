@@ -7,6 +7,7 @@ import Visit from "./ZestHaven/Visit";
 import Reserve from "./ZestHaven/Reserve";
 import Contact from "./ZestHaven/Contact";
 import WhatsAppFab from "./ZestHaven/WhatsAppFab";
+import AboutDeveloper from "./SEO/AboutDeveloper";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Visit />
       <Reserve />
       <Contact />
+      <AboutDeveloper projectName="ZestHaven Bukka" />
       <WhatsAppFab />
     </>
   );

@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
+import useSmoothScroll from "../../hooks/useSmoothScroll";
 
 const NAV = [
   { href: "#about", label: "About" },
@@ -11,6 +12,8 @@ const NAV = [
 ];
 
 const Footer = () => {
+  const { handleAnchorClick } = useSmoothScroll();
+
   return (
     <footer className="relative border-t border-border/60 bg-card/30 pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -31,14 +34,26 @@ const Footer = () => {
 
             <div className="mt-6 flex gap-3">
               {[
-                { Icon: SocialIcons.Instagram, href: "#", label: "Instagram" },
+                {
+                  Icon: SocialIcons.Instagram,
+                  href: "https://www.instagram.com/sharpman_dev",
+                  label: "Instagram",
+                },
                 {
                   Icon: MessageCircle,
-                  href: "https://wa.me/2348012345678",
+                  href: "https://wa.me/2349070281022",
                   label: "WhatsApp",
                 },
-                { Icon: SocialIcons.Facebook, href: "#", label: "Facebook" },
-                { Icon: SocialIcons.Twitter, href: "#", label: "Twitter" },
+                {
+                  Icon: SocialIcons.Facebook,
+                  href: "#",
+                  label: "Facebook",
+                },
+                {
+                  Icon: SocialIcons.Twitter,
+                  href: "https://x.com/sharpman_dev",
+                  label: "Twitter",
+                },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -57,7 +72,11 @@ const Footer = () => {
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href} className="hover:text-gold">
+                  <a
+                    href={n.href}
+                    onClick={handleAnchorClick}
+                    className="hover:text-gold"
+                  >
                     {n.label}
                   </a>
                 </li>
@@ -70,7 +89,7 @@ const Footer = () => {
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>14 Admiralty Way</li>
               <li>Lekki Phase 1, Lagos</li>
-              <li>+234 801 234 5678</li>
+              <li>+234 907 028 1022</li>
               <li>hello@zesthaven.ng</li>
             </ul>
           </div>
@@ -78,7 +97,29 @@ const Footer = () => {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <div>
-            © {new Date().getFullYear()} ZestHaven Bukka. All rights reserved.
+            © {new Date().getFullYear()} ZestHaven Bukka. All rights reserved.{" "}
+            <span className="hidden sm:inline">·</span>{" "}
+            <span className="sm:ml-1">
+              Designed and Developed by{" "}
+              <a
+                href="https://sharpman.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-gold transition-colors hover:text-gold/80"
+              >
+                Oyenuga Joshua
+              </a>{" "}
+              (
+              <a
+                href="https://sharpman.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-gold transition-colors hover:text-gold/80"
+              >
+                Sharpman
+              </a>
+              )
+            </span>
           </div>
           <div className="flex gap-5">
             <a href="#" className="hover:text-gold">
