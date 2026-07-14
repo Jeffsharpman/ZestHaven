@@ -21,42 +21,42 @@ const DISHES = [
   {
     name: "Smoky Party Jollof",
     cat: "Rice Dishes",
-    desc: "Long-grain rice slow-cooked in smoked pepper stew with grilled chicken & fried plantain.",
+    desc: "Long-grain rice slow-cooked in smoked pepper stew with grilled chicken & fried plantain. The dish that started it all — unchanged since Chef Amaka's first batch.",
     price: "₦7,500",
     img: dishJollof,
   },
   {
     name: "Egusi Royale",
     cat: "Soups & Swallows",
-    desc: "Hand-ground melon seed soup with assorted meats, served with pounded yam.",
+    desc: "Hand-ground melon seed soup with assorted meats, served with pounded yam. Built layer by layer, the way it should be.",
     price: "₦8,200",
     img: dishEgusi,
   },
   {
     name: "ZestHaven Suya Platter",
     cat: "Grills & Suya",
-    desc: "House-spiced beef skewers grilled over open fire with raw onions and yaji.",
+    desc: "House-spiced beef skewers grilled over open fire with raw onions and yaji. Every spice blend is mixed in-house daily.",
     price: "₦6,800",
     img: dishSuya,
   },
   {
     name: "Ogbono Velvet",
     cat: "Soups & Swallows",
-    desc: "Silky ogbono with goat meat, stockfish and ponmo. Paired with eba or pounded yam.",
+    desc: "Silky ogbono with goat meat, stockfish and ponmo. Paired with eba or pounded yam. A texture you won't find elsewhere.",
     price: "₦7,900",
     img: dishOgbono,
   },
   {
     name: "Golden Dodo",
     cat: "Sides & Extras",
-    desc: "Sweet caramelized plantain cubes, fried to a delicate crisp.",
+    desc: "Sweet caramelized plantain cubes, fried to a delicate crisp. The perfect companion to any main course.",
     price: "₦2,500",
     img: dishPlantain,
   },
   {
     name: "Catfish Pepper Soup",
     cat: "Soups & Swallows",
-    desc: "Fresh catfish in a bold, fragrant pepper broth with utazi leaves.",
+    desc: "Fresh catfish in a bold, fragrant pepper broth with utazi leaves. Light enough for a starter, rich enough for a main.",
     price: "₦9,400",
     img: dishPeppersoup,
   },
@@ -89,6 +89,11 @@ const Menu = () => {
                   home, plated like a celebration.
                 </span>
               </h2>
+              <p className="mt-4 max-w-xl text-base text-foreground/70">
+                Every dish is prepared with ingredients sourced from Lagos markets
+                and cooked using techniques passed down through generations. No
+                shortcuts. No substitutes.
+              </p>
             </div>
             <a
               href="#reserve"

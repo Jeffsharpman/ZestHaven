@@ -83,7 +83,7 @@ const Nav = ({ open, setOpen, scrolled }) => {
           </div>
 
           <button
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen(!open)}

@@ -66,6 +66,11 @@ const About = () => {
               Every pepper is sourced from Mile 12. Every yam is hand-pounded.
               Every plate leaves the pass only when it tastes like home.
             </p>
+            <p>
+              This website was designed and developed by Oyenuga Joshua under the
+              Sharpman brand as part of an ongoing commitment to building
+              high-quality digital products for businesses across Nigeria.
+            </p>
           </div>
 
           <ScrollReveal animation="fadeUpStagger" className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md" as="div" role="list">

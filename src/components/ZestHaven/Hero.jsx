@@ -102,8 +102,9 @@ const Hero = () => {
             className="mt-6 max-w-xl text-base text-foreground/80 sm:text-lg"
           >
             ZestHaven Bukka brings the soul of Nigerian cooking — slow stews,
-            smoky grills, hand-pounded yam — into a setting worth dressing up
-            for.
+            smoky grills, hand-pounded yam — into a setting designed for the way
+            Lagos eats now. Family recipes, fresh market ingredients, open-fire
+            technique. Every plate tells a story.
           </motion.p>
 
           <motion.div
@@ -115,7 +116,7 @@ const Hero = () => {
               onClick={handleAnchorClick}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
             >
-              View Menu <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Explore the Menu <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
               href="#reserve"

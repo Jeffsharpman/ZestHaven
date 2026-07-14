@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Code, Globe, Search } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import SectionLabel from "../ZestHaven/SectionLabel";
 import ScrollReveal, { StaggerItem } from "../UI/ScrollReveal";
 
@@ -10,28 +10,25 @@ const developerData = {
   location: "Ikorodu, Lagos, Nigeria",
   portfolio: "https://sharpman.netlify.app",
   email: "buildwithsharpman@gmail.com",
-  technologies: ["HTML", "CSS", "JavaScript", "React", "PHP", "Laravel", "Livewire", "Filament"],
-  services: [
-    { icon: Globe, label: "Custom Website Development" },
-    { icon: Code, label: "Web Application Development" },
-    { icon: Globe, label: "Restaurant Websites" },
-    { icon: Globe, label: "Business Websites" },
-    { icon: Globe, label: "Landing Pages" },
-    { icon: Globe, label: "Portfolio Websites" },
-    { icon: Globe, label: "E-commerce Solutions" },
-    { icon: Code, label: "Admin Dashboards" },
-    { icon: Code, label: "React Development" },
-    { icon: Code, label: "Laravel Development" },
-    { icon: Search, label: "SEO Optimization" },
-    { icon: Globe, label: "Digital Solutions" },
+  technologies: ["React", "Laravel", "PHP", "JavaScript", "HTML", "CSS", "Livewire", "Filament", "Tailwind CSS", "Node.js"],
+  expertise: [
+    "Modern Web Applications",
+    "Business Software",
+    "Custom Software Development",
+    "Restaurant & Hospitality Websites",
+    "E-commerce Solutions",
+    "SEO Optimization",
+    "Admin Dashboards",
+    "Landing Pages",
+    "Digital Solutions",
   ],
 };
 
-function ServiceCard({ icon: Icon, label }) {
+function ExpertiseTag({ text }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/30 px-4 py-3 text-sm transition-colors hover:border-gold/40 hover:bg-card/50">
-      <Icon className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-      <span className="text-foreground/80">{label}</span>
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+      <span className="text-foreground/80">{text}</span>
     </div>
   );
 }
@@ -59,8 +56,10 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80">
                 {developerData.name} is a {developerData.role} based in{" "}
                 {developerData.location}. He specializes in building modern,
-                responsive, SEO-friendly websites and web applications for
-                businesses across Nigeria and beyond.
+                responsive, and performance-optimized web applications for
+                businesses across Nigeria and beyond. This project represents one
+                of several software products engineered under the{" "}
+                <strong className="text-foreground/90">{developerData.brand}</strong> brand.
               </p>
             </StaggerItem>
 
@@ -70,16 +69,17 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
               </h3>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-foreground/75">
                 <strong className="text-foreground/90">{developerData.brand}</strong> is the
-                personal web development and digital solutions brand founded by{" "}
-                {developerData.name}. It is focused on helping businesses establish
-                a stronger online presence through modern websites, web applications,
-                and technology-driven digital experiences.
+                software development brand founded by{" "}
+                {developerData.name}. Sharpman provides professional web
+                development, custom software, and digital solutions for businesses
+                looking to establish a stronger online presence through
+                technology-driven products.
               </p>
             </StaggerItem>
 
             <StaggerItem as="div">
               <h3 className="font-display text-xl text-foreground">
-                Technologies & Tools
+                Core Technologies
               </h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {developerData.technologies.map((tech) => (
@@ -101,7 +101,7 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
               >
-                View more projects by {developerData.brand}
+                Explore more projects by {developerData.brand}
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
@@ -116,22 +116,19 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
             </StaggerItem>
           </ScrollReveal>
 
-          {/* Services Sidebar */}
+          {/* Expertise Sidebar */}
           <ScrollReveal animation="slideRight" delay={0.2}>
             <div className="rounded-2xl border border-border bg-card/30 p-6">
               <h3 className="font-display text-lg text-gold">
-                {developerData.brand} Services
+                {developerData.brand} Expertise
               </h3>
               <p className="mt-2 text-sm text-foreground/70">
-                Professional digital solutions for businesses
+                Software engineering and digital solutions for modern businesses
               </p>
               <ScrollReveal animation="fadeUpStagger" className="mt-5 space-y-3" as="div">
-                {developerData.services.map((service) => (
-                  <StaggerItem key={service.label} as="div">
-                    <ServiceCard
-                      icon={service.icon}
-                      label={service.label}
-                    />
+                {developerData.expertise.map((item) => (
+                  <StaggerItem key={item} as="div">
+                    <ExpertiseTag text={item} />
                   </StaggerItem>
                 ))}
               </ScrollReveal>
@@ -139,16 +136,17 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
           </ScrollReveal>
         </div>
 
-        {/* Internal Brand Connection */}
+        {/* Project Attribution */}
         <ScrollReveal animation="fadeUp" delay={0.3} className="mt-12">
           <div className="rounded-2xl border border-border/60 bg-card/20 p-6 sm:p-8">
             <p className="text-sm leading-relaxed text-foreground/70">
               <strong className="text-foreground/85">{projectName || "This project"}</strong> is
-              one of several projects developed by{" "}
+              one of several software products designed and developed by{" "}
               <strong className="text-foreground/85">{developerData.name}</strong> under
               the <strong className="text-foreground/85">{developerData.brand}</strong> brand.{" "}
-              {developerData.brand} provides professional web development and digital
-              solutions for businesses across Lagos and Nigeria.
+              {developerData.brand} builds modern web applications, custom
+              business software, and digital solutions for clients across Lagos
+              and Nigeria.
             </p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
               <a

@@ -29,10 +29,11 @@ const Footer = () => {
             </div>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               A modern Nigerian bukka in the heart of Lekki, Lagos. Built on
-              family recipes, fresh markets and open fires.
+              family recipes, fresh markets and open fires. Serving authentic
+              Nigerian cuisine in a setting designed for how Lagos eats now.
             </p>
 
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               {[
                 {
                   Icon: SocialIcons.Instagram,
@@ -40,19 +41,34 @@ const Footer = () => {
                   label: "Instagram",
                 },
                 {
-                  Icon: MessageCircle,
-                  href: "https://wa.me/2349070281022",
-                  label: "WhatsApp",
+                  Icon: SocialIcons.Twitter,
+                  href: "https://x.com/sharpman_dev",
+                  label: "X (Twitter)",
+                },
+                {
+                  Icon: SocialIcons.LinkedIn,
+                  href: "https://www.linkedin.com/in/oyenuga-joshua-058434417",
+                  label: "LinkedIn",
                 },
                 {
                   Icon: SocialIcons.Facebook,
-                  href: "#",
+                  href: "https://www.facebook.com/oyenugajoshua",
                   label: "Facebook",
                 },
                 {
-                  Icon: SocialIcons.Twitter,
-                  href: "https://x.com/sharpman_dev",
-                  label: "Twitter",
+                  Icon: SocialIcons.YouTube,
+                  href: "https://youtube.com/@sharpman_dev",
+                  label: "YouTube",
+                },
+                {
+                  Icon: SocialIcons.TikTok,
+                  href: "https://www.tiktok.com/@sharpman.dev",
+                  label: "TikTok",
+                },
+                {
+                  Icon: MessageCircle,
+                  href: "https://wa.me/2349070281022",
+                  label: "WhatsApp",
                 },
               ].map(({ Icon, href, label }) => (
                 <a
@@ -95,33 +111,38 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            © {new Date().getFullYear()} ZestHaven Bukka. All rights reserved.{" "}
-            <span className="hidden sm:inline">·</span>{" "}
-            <span className="sm:ml-1">
-              Designed and Developed by{" "}
-              <a
-                href="https://sharpman.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-gold transition-colors hover:text-gold/80"
-              >
-                Oyenuga Joshua
-              </a>{" "}
-              (
-              <a
-                href="https://sharpman.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-gold transition-colors hover:text-gold/80"
-              >
-                Sharpman
-              </a>
-              )
-            </span>
+        <div className="mt-12 border-t border-border/60 pt-6">
+          <div className="flex flex-col gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              &copy; {new Date().getFullYear()} ZestHaven Bukka. All rights reserved.
+            </div>
+            <div className="flex flex-col gap-1 sm:items-end">
+              <div>
+                Designed &amp; Developed by{" "}
+                <a
+                  href="https://sharpman.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-gold transition-colors hover:text-gold/80"
+                >
+                  Oyenuga Joshua
+                </a>
+                {" "}· Founder of{" "}
+                <a
+                  href="https://sharpman.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-gold transition-colors hover:text-gold/80"
+                >
+                  Sharpman
+                </a>
+              </div>
+              <div className="text-muted-foreground/60">
+                Part of the Sharpman Software Portfolio
+              </div>
+            </div>
           </div>
-          <div className="flex gap-5">
+          <div className="mt-4 flex gap-5 text-xs text-muted-foreground">
             <a href="#" className="hover:text-gold">
               Privacy
             </a>

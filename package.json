@@ -1,7 +1,9 @@
 {
-  "name": "zesthaven",
+  "name": "zesthaven-bukka",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modern Nigerian restaurant website — Lekki, Lagos. Built by Oyenuga Joshua under the Sharpman brand.",
+  "author": "Oyenuga Joshua <buildwithsharpman@gmail.com>",
   "type": "module",
   "scripts": {
     "dev": "vite",

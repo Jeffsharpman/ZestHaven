@@ -84,8 +84,8 @@ const Contact = () => {
             Send us a message.
           </h2>
           <p className="mt-4 text-base text-foreground/75">
-            Questions, feedback, or just saying hello — we&apos;d love to hear from
-            you.
+            Questions about our menu, private events, catering, or partnership
+            opportunities — we respond within 24 hours.
           </p>
         </ScrollReveal>
 
@@ -103,7 +103,8 @@ const Contact = () => {
               Message sent!
             </div>
             <p className="mt-2 text-sm text-foreground/80">
-              Thanks for reaching out. We&apos;ll get back to you soon.
+              Thank you for reaching out. We&apos;ll get back to you within 24
+              hours.
             </p>
           </motion.div>
         ) : (
@@ -173,7 +174,7 @@ const Contact = () => {
 
               {state === "error" && (
                 <p className="text-sm text-destructive" role="alert">
-                  Something went wrong. Please try again or email us directly.
+                  Something went wrong. Please try again or email us directly at hello@zesthaven.ng.
                 </p>
               )}
 

@@ -19,8 +19,8 @@ const App = () => {
       <DeveloperSchema
         projectName="ZestHaven Bukka"
         projectUrl="https://zesthaven.netlify.app"
-        projectDescription="A modern Nigerian bukka in the heart of Lekki, Lagos. Built on family recipes, fresh markets and open fires."
-        technologies={["HTML", "CSS", "JavaScript", "React"]}
+        projectDescription="A modern Nigerian bukka in the heart of Lekki, Lagos. Family recipes, fresh market ingredients, open-fire cooking — served in a space designed for how Lagos eats now. Designed and developed by Oyenuga Joshua under the Sharpman brand."
+        technologies={["React", "Vite", "Tailwind CSS", "Framer Motion", "Netlify"]}
       />
       <a
         href="#main-content"

@@ -40,11 +40,15 @@ const Testimonials = () => {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal animation="fadeUp" className="mx-auto max-w-2xl text-center">
           <SectionLabel>
-            <span className="mx-auto">Loved in Lagos</span>
+            <span className="mx-auto">Guest Reviews</span>
           </SectionLabel>
           <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
             What our guests say.
           </h2>
+          <p className="mt-4 text-base text-foreground/70">
+            Real feedback from people who have dined with us. No curated
+            endorsements — just honest experiences.
+          </p>
         </ScrollReveal>
 
         <ScrollReveal animation="fadeUpStagger" className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" as="div">

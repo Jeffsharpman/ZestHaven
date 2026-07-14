@@ -60,7 +60,8 @@ const Reserve = () => {
                 </h2>
                 <p className="mt-4 text-base text-foreground/75">
                   Tell us when you&apos;d like to come — we&apos;ll confirm by WhatsApp
-                  within the hour.
+                  within the hour. Reservations are recommended for parties of
+                  four or more, but walk-ins are always welcome.
                 </p>
               </div>
 
@@ -77,8 +78,8 @@ const Reserve = () => {
                     Thank you
                   </div>
                   <p className="mt-2 text-sm text-foreground/80">
-                    Your reservation request has been received. We&apos;ll be in touch
-                    shortly.
+                    Your reservation request has been received. We&apos;ll confirm
+                    your booking via WhatsApp shortly.
                   </p>
                 </motion.div>
               ) : (

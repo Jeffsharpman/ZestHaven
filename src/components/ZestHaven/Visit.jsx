@@ -50,6 +50,11 @@ const Visit = () => {
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
               Find your seat at the table.
             </h2>
+            <p className="mt-4 max-w-lg text-base text-foreground/70">
+              Located in the heart of Lekki Phase 1, ZestHaven is easily
+              accessible by car or ride-hail. Walk-ins are welcome, reservations
+              are recommended for parties of four or more.
+            </p>
 
             <ScrollReveal animation="fadeUpStagger" className="mt-10 space-y-6" as="div">
               <StaggerItem as="div">

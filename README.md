@@ -1,18 +1,65 @@
-# React + Vite
+# ZestHaven Bukka
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Nigerian restaurant website built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ZestHaven Bukka is a standalone web application for a Nigerian restaurant in Lekki, Lagos. The site features a responsive design, interactive menu with category filtering, table reservations via Netlify Forms, WhatsApp integration, and full SEO markup including structured data (JSON-LD).
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React 19** — UI framework
+- **Vite** — Build tool and dev server
+- **Tailwind CSS** — Utility-first styling
+- **Framer Motion** — Animations and scroll effects
+- **Lucide React** — Icon library
+- **Netlify** — Hosting and form handling
 
-Note: This will impact Vite dev & build performances.
+## Features
 
-## Expanding the ESLint configuration
+- Responsive design across all breakpoints
+- Interactive menu with category filtering
+- Table reservation system (Netlify Forms)
+- Contact form with validation
+- WhatsApp quick-order floating button
+- Smooth scroll navigation
+- Scroll-triggered animations
+- SEO-optimized with JSON-LD structured data
+- Accessible markup (ARIA labels, semantic HTML)
+- Reduced motion support
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+  components/
+    ZestHaven/       — Restaurant-specific components
+    SEO/             — Schema markup and developer attribution
+    UI/              — Reusable animation utilities
+  hooks/             — Custom React hooks
+  assets/            — Images and static files
+```
+
+## Developer
+
+Designed and developed by [Oyenuga Joshua](https://sharpman.netlify.app) under the [Sharpman](https://sharpman.netlify.app) brand.
+
+Part of the Sharpman Software Portfolio.
+
+## License
+
+All rights reserved.

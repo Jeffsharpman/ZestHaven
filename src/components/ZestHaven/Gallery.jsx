@@ -32,6 +32,11 @@ const Gallery = () => {
             <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
               Inside the haven.
             </h2>
+            <p className="mt-4 max-w-xl text-base text-foreground/70">
+              The space was designed to feel like a modern extension of the
+              Nigerian home kitchen — warm, inviting, and built for lingering over
+              good food.
+            </p>
           </div>
         </ScrollReveal>
 

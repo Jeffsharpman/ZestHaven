@@ -20,25 +20,29 @@ const DeveloperSchema = ({ projectName, projectUrl, projectDescription, technolo
       },
       sameAs: [
         "https://sharpman.netlify.app",
-        "https://github.com/Jeffsharpman",
-        "https://www.linkedin.com/in/oyenuga-joshua-058434417",
         "https://x.com/sharpman_dev",
+        "https://www.linkedin.com/in/oyenuga-joshua-058434417",
         "https://www.instagram.com/sharpman_dev",
-        "https://youtube.com/@sharpman_dev"
+        "https://www.facebook.com/oyenugajoshua",
+        "https://youtube.com/@sharpman_dev",
+        "https://www.tiktok.com/@sharpman.dev",
+        "https://github.com/Jeffsharpman"
       ]
     },
     creator: {
       "@type": "Organization",
       name: "Sharpman",
       url: "https://sharpman.netlify.app",
-      description: "Web development and digital solutions brand founded by Oyenuga Joshua",
+      description: "Software development and digital solutions brand founded by Oyenuga Joshua",
       sameAs: [
         "https://sharpman.netlify.app",
-        "https://github.com/Jeffsharpman",
-        "https://www.linkedin.com/in/oyenuga-joshua-058434417",
         "https://x.com/sharpman_dev",
+        "https://www.linkedin.com/in/oyenuga-joshua-058434417",
         "https://www.instagram.com/sharpman_dev",
-        "https://youtube.com/@sharpman_dev"
+        "https://www.facebook.com/oyenugajoshua",
+        "https://youtube.com/@sharpman_dev",
+        "https://www.tiktok.com/@sharpman.dev",
+        "https://github.com/Jeffsharpman"
       ]
     },
     publisher: {
