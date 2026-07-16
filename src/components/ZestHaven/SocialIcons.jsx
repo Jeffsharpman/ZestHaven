@@ -1,4 +1,4 @@
-
+/* eslint-disable react-refresh/only-export-components */
 const IconBase = ({ children }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
     {children}

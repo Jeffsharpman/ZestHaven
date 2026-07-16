@@ -1,14 +1,19 @@
 import { MessageCircle } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
 import useSmoothScroll from "../../hooks/useSmoothScroll";
+import Button from "../UI/Button";
+import Eyebrow from "../UI/Eyebrow";
+import Logo from "../UI/Logo";
+import NAV from "../UI/NavItem";
 
-const NAV = [
-  { href: "#about", label: "About" },
-  { href: "#menu", label: "Menu" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#visit", label: "Visit" },
-  { href: "#reserve", label: "Reserve" },
-  { href: "#contact", label: "Contact" },
+const socialLinks = [
+  { Icon: SocialIcons.Instagram, href: "https://www.instagram.com/sharpman_dev", label: "Instagram" },
+  { Icon: SocialIcons.Twitter, href: "https://x.com/sharpman_dev", label: "X (Twitter)" },
+  { Icon: SocialIcons.LinkedIn, href: "https://www.linkedin.com/in/oyenuga-joshua-058434417", label: "LinkedIn" },
+  { Icon: SocialIcons.Facebook, href: "https://www.facebook.com/oyenugajoshua", label: "Facebook" },
+  { Icon: SocialIcons.YouTube, href: "https://youtube.com/@sharpman_dev", label: "YouTube" },
+  { Icon: SocialIcons.TikTok, href: "https://www.tiktok.com/@sharpman.dev", label: "TikTok" },
+  { Icon: MessageCircle, href: "https://wa.me/2349070281022", label: "WhatsApp" },
 ];
 
 const Footer = () => {
@@ -19,14 +24,8 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold" aria-hidden="true">
-                Z
-              </span>
-              <span className="font-display text-2xl">
-                ZestHaven <span className="text-gold" aria-hidden="true">·</span> Bukka
-              </span>
-            </div>
+            <Logo />
+
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
               A modern Nigerian bukka in the heart of Lekki, Lagos. Built on
               family recipes, fresh markets and open fires. Serving authentic
@@ -34,66 +33,32 @@ const Footer = () => {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {[
-                {
-                  Icon: SocialIcons.Instagram,
-                  href: "https://www.instagram.com/sharpman_dev",
-                  label: "Instagram",
-                },
-                {
-                  Icon: SocialIcons.Twitter,
-                  href: "https://x.com/sharpman_dev",
-                  label: "X (Twitter)",
-                },
-                {
-                  Icon: SocialIcons.LinkedIn,
-                  href: "https://www.linkedin.com/in/oyenuga-joshua-058434417",
-                  label: "LinkedIn",
-                },
-                {
-                  Icon: SocialIcons.Facebook,
-                  href: "https://www.facebook.com/oyenugajoshua",
-                  label: "Facebook",
-                },
-                {
-                  Icon: SocialIcons.YouTube,
-                  href: "https://youtube.com/@sharpman_dev",
-                  label: "YouTube",
-                },
-                {
-                  Icon: SocialIcons.TikTok,
-                  href: "https://www.tiktok.com/@sharpman.dev",
-                  label: "TikTok",
-                },
-                {
-                  Icon: MessageCircle,
-                  href: "https://wa.me/2349070281022",
-                  label: "WhatsApp",
-                },
-              ].map(({ Icon, href, label }) => (
-                <a
+              {socialLinks.map(({ Icon, href, label }) => (
+                <Button
                   key={label}
                   href={href}
+                  variant="outline"
+                  size="sm"
                   aria-label={label}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background/40 text-foreground/80 transition-all hover:border-gold hover:text-gold"
+                  className="!px-0 !py-0 h-10 w-10 justify-center rounded-full"
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
-                </a>
+                </Button>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="font-display text-lg text-gold">Explore</h3>
+            <Eyebrow as="h3" className="mb-4">EXPLORE</Eyebrow>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {NAV.map((n) => (
-                <li key={n.href}>
+              {NAV.map(([label, href]) => (
+                <li key={href}>
                   <a
-                    href={n.href}
+                    href={href}
                     onClick={handleAnchorClick}
                     className="hover:text-gold"
                   >
-                    {n.label}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -101,7 +66,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-display text-lg text-gold">Contact</h3>
+            <Eyebrow as="h3" className="mb-4">CONTACT</Eyebrow>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>14 Admiralty Way</li>
               <li>Lekki Phase 1, Lagos</li>

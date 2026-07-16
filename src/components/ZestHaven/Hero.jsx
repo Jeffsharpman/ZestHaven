@@ -1,11 +1,10 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import heroJollof from "../../assets/hero-jollof.jpg";
-import {
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
+import { MapPin } from "lucide-react";
 import useSmoothScroll from "../../hooks/useSmoothScroll";
+import Button from "../UI/Button";
+import Particles from "../UI/Particles";
 
 const instant = { duration: 0 };
 
@@ -74,9 +73,10 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" aria-hidden="true" />
       <div className="absolute inset-0 adire-pattern opacity-[0.07]" aria-hidden="true" />
+      <Particles />
 
       <motion.div
-        className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:justify-center lg:pt-0"
+        className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:justify-center lg:pt-24"
         style={{ opacity: contentOpacity }}
       >
         <div className="max-w-2xl">
@@ -111,20 +111,23 @@ const Hero = () => {
             {...motionProps(0.8)}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <a
+            <Button
               href="#menu"
+              variant="primary"
+              size="lg"
+              arrow
               onClick={handleAnchorClick}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
             >
-              Explore the Menu <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a
+              Explore the Menu
+            </Button>
+            <Button
               href="#reserve"
+              variant="outline"
+              size="lg"
               onClick={handleAnchorClick}
-              className="btn-stretch inline-flex items-center gap-2 rounded-full border border-gold/60 bg-background/30 px-7 py-4 text-sm font-semibold text-cream backdrop-blur transition-colors hover:bg-gold hover:text-gold-foreground"
             >
               Reserve a Table
-            </a>
+            </Button>
           </motion.div>
 
           <div className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border/60 pt-6" role="list" aria-label="Restaurant highlights">

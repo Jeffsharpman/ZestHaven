@@ -5,14 +5,16 @@ import Gallery from "./ZestHaven/Gallery";
 import Testimonials from "./ZestHaven/Testimonials";
 import Visit from "./ZestHaven/Visit";
 import Reserve from "./ZestHaven/Reserve";
-import Contact from "./ZestHaven/Contact";
-import WhatsAppFab from "./ZestHaven/WhatsAppFab";
+import Contact from "./UI/Contact";
+import WhatsAppFAB from "./UI/WhatsAppFAB";
 import AboutDeveloper from "./SEO/AboutDeveloper";
+import Marquee from "./UI/Marquee";
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <Marquee />
       <About />
       <Menu />
       <Gallery />
@@ -21,7 +23,7 @@ const Home = () => {
       <Reserve />
       <Contact />
       <AboutDeveloper projectName="ZestHaven Bukka" />
-      <WhatsAppFab />
+      <WhatsAppFAB />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import SectionLabel from "../ZestHaven/SectionLabel";
+import Eyebrow from "../UI/Eyebrow";
 import ScrollReveal, { StaggerItem } from "../UI/ScrollReveal";
 
 const developerData = {
@@ -42,7 +42,7 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <ScrollReveal animation="fadeUp">
-          <SectionLabel>Behind the Code</SectionLabel>
+          <Eyebrow as="div" className="text-center">Behind the Code</Eyebrow>
         </ScrollReveal>
 
         <div className="mt-8 grid gap-12 lg:grid-cols-3">
