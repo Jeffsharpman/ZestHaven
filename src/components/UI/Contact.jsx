@@ -1,35 +1,16 @@
-import { useRef, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import Eyebrow from "./Eyebrow";
+import Button from "./Button";
 import Card from "./Card";
 import FormInput from "./FormInput";
 import FormTextarea from "./FormTextarea";
 import FormSubmitButton from "./FormSubmitButton";
 import FormSuccess from "./FormSuccess";
 import FormError from "./FormError";
-import { encodeForm } from "./encodeForm";
+import { useNetlifyForm } from "../../hooks/useNetlifyForm";
 
 function Contact() {
-  const form = useRef(null);
-  const [state, setState] = useState("idle");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setState("sending");
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeForm({
-          "form-name": "contact",
-          ...Object.fromEntries(new FormData(form.current)),
-        }),
-      });
-      setState("sent");
-    } catch {
-      setState("error");
-    }
-  };
+  const { form, state, handleSubmit } = useNetlifyForm("contact");
 
   return (
     <section id="contact" aria-label="Contact us" className="relative overflow-hidden py-24 sm:py-32">
@@ -86,7 +67,7 @@ function Contact() {
                 ["LOCATION", "14 Admiralty Way, Lekki Phase 1, Lagos"],
                 ["WHATSAPP", "+234 907 028 1022"],
                 ["EMAIL", "hello@zesthaven.ng"],
-                ["HOURS", "Mon – Sun · 11:00 – 00:00"],
+                ["HOURS", "Mon – Thu · 11:00 – 22:00 · Fri – Sun · 11:00 – 00:00"],
               ].map(([title, value]) => (
                 <Card key={title} variant="glass" rounded="2xl" padding="p-5">
                   <Eyebrow as="div" color="primary">{title}</Eyebrow>
@@ -102,15 +83,14 @@ function Contact() {
                   { label: "TikTok", href: "https://www.tiktok.com/@sharpman.dev" },
                   { label: "X", href: "https://x.com/sharpman_dev" },
                 ].map((social) => (
-                  <a
+                  <Button
                     key={social.label}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-border bg-card/60 px-4 py-2 font-sans text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-all hover:border-gold/50 hover:text-gold"
+                    variant="outline"
+                    size="sm"
                   >
                     {social.label}
-                  </a>
+                  </Button>
                 ))}
               </div>
             </div>

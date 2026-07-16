@@ -36,7 +36,7 @@ const Visit = () => {
               <MessageCircle className="h-4 w-4" aria-hidden="true" /> Order on WhatsApp
             </Button>
             <Button href="#reserve" variant="outline" size="md" onClick={(e) => { e.preventDefault(); document.getElementById("reserve")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
-              Book Table
+              Reserve a Table
             </Button>
           </ScrollReveal>
         </ScrollReveal>

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Eyebrow from "../UI/Eyebrow";
+import Button from "../UI/Button";
+import Badge from "../UI/Badge";
+import Card from "../UI/Card";
 import ScrollReveal, { StaggerItem } from "../UI/ScrollReveal";
 
 const developerData = {
@@ -83,42 +86,35 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
               </h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {developerData.technologies.map((tech) => (
-                  <motion.span
-                    key={tech}
-                    whileHover={{ scale: 1.08 }}
-                    className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-medium text-gold"
-                  >
-                    {tech}
+                  <motion.span key={tech} whileHover={{ scale: 1.08 }}>
+                    <Badge variant="gold">{tech}</Badge>
                   </motion.span>
                 ))}
               </div>
             </StaggerItem>
 
             <StaggerItem as="div" className="flex flex-wrap gap-3 pt-2">
-              <a
+              <Button
                 href={developerData.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+                variant="primary"
+                size="md"
+                arrow
               >
                 Explore more projects by {developerData.brand}
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <a
+              </Button>
+              <Button
                 href={`${developerData.portfolio}/about`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gold/60 bg-background/30 px-6 py-3 text-sm font-semibold text-cream backdrop-blur transition-colors hover:bg-gold hover:text-gold-foreground"
+                variant="outline"
+                size="md"
               >
                 Learn more about {developerData.name}
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Button>
             </StaggerItem>
           </ScrollReveal>
 
           {/* Expertise Sidebar */}
           <ScrollReveal animation="slideRight" delay={0.2}>
-            <div className="rounded-2xl border border-border bg-card/30 p-6">
+            <Card variant="default" rounded="2xl" padding="p-6">
               <h3 className="font-display text-lg text-gold">
                 {developerData.brand} Expertise
               </h3>
@@ -132,13 +128,13 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
                   </StaggerItem>
                 ))}
               </ScrollReveal>
-            </div>
+            </Card>
           </ScrollReveal>
         </div>
 
         {/* Project Attribution */}
         <ScrollReveal animation="fadeUp" delay={0.3} className="mt-12">
-          <div className="rounded-2xl border border-border/60 bg-card/20 p-6 sm:p-8">
+          <Card variant="default" rounded="2xl" padding="p-6 sm:p-8">
             <p className="text-sm leading-relaxed text-foreground/70">
               <strong className="text-foreground/85">{projectName || "This project"}</strong> is
               one of several software products designed and developed by{" "}
@@ -186,7 +182,7 @@ const AboutDeveloper = ({ projectName = "This project" }) => {
                 <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
             </div>
-          </div>
+          </Card>
         </ScrollReveal>
       </div>
     </section>

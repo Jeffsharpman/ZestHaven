@@ -4,9 +4,9 @@ import heroJollof from "../../assets/hero-jollof.jpg";
 import { MapPin } from "lucide-react";
 import useSmoothScroll from "../../hooks/useSmoothScroll";
 import Button from "../UI/Button";
+import Badge from "../UI/Badge";
 import Particles from "../UI/Particles";
-
-const instant = { duration: 0 };
+import { instant } from "../UI/animations";
 
 function Stat({ n, l, delay }) {
   const shouldReduceMotion = useReducedMotion();
@@ -80,12 +80,11 @@ const Hero = () => {
         style={{ opacity: contentOpacity }}
       >
         <div className="max-w-2xl">
-          <motion.div
-            {...motionProps(0.2)}
-            className="mt-12 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-background/40 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-gold backdrop-blur"
-          >
-            <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Lagos · Nigeria</span>
+          <motion.div {...motionProps(0.2)}>
+            <Badge variant="gold" className="gap-2">
+              <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>Lagos · Nigeria</span>
+            </Badge>
           </motion.div>
 
           <motion.h1

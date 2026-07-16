@@ -69,36 +69,4 @@ export const StaggerItem = ({ children, className = "", as = "div", ...props }) 
   );
 };
 
-export const HeroReveal = ({
-  children,
-  className = "",
-  delay = 0,
-  as = "div",
-  ...props
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const shouldReduceMotion = useReducedMotion();
-  const MotionTag = motion[as] || motion.div;
-
-  return (
-    <MotionTag
-      ref={ref}
-      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
-      animate={
-        isInView
-          ? { opacity: 1, ...(shouldReduceMotion ? {} : { y: 0 }) }
-          : shouldReduceMotion
-            ? { opacity: 0 }
-            : { opacity: 0, y: 40 }
-      }
-      transition={shouldReduceMotion ? instant : { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
-      className={className}
-      {...props}
-    >
-      {children}
-    </MotionTag>
-  );
-};
-
 export default ScrollReveal;

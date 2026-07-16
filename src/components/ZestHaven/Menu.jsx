@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChefHat, UtensilsCrossed, Flame, Leaf } from "lucide-react";
 import ScrollReveal from "../UI/ScrollReveal";
 import Button from "../UI/Button";
+import Badge from "../UI/Badge";
 import Card from "../UI/Card";
 import Section from "../UI/Section";
 import SectionHeader from "../UI/SectionHeader";
@@ -63,7 +64,7 @@ const Menu = () => {
               <Card variant="elevatedHover" rounded="3xl" className="group">
                 <div className="relative aspect-[5/4] overflow-hidden">
                   <img src={d.img} alt={d.name} width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <span className="absolute left-4 top-4 rounded-full bg-background/80 px-3 py-1 text-xs font-medium text-gold backdrop-blur">{d.cat}</span>
+                  <Badge variant="solid" className="absolute left-4 top-4 text-gold">{d.cat}</Badge>
                 </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">

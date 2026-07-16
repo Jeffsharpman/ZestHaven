@@ -1,4 +1,3 @@
-import { useState, useRef } from "react";
 import ScrollReveal from "../UI/ScrollReveal";
 import Card from "../UI/Card";
 import Section from "../UI/Section";
@@ -8,26 +7,10 @@ import FormTextarea from "../UI/FormTextarea";
 import FormSubmitButton from "../UI/FormSubmitButton";
 import FormSuccess from "../UI/FormSuccess";
 import FormError from "../UI/FormError";
-import { encodeForm } from "../UI/encodeForm";
+import { useNetlifyForm } from "../../hooks/useNetlifyForm";
 
 const Reserve = () => {
-  const form = useRef(null);
-  const [state, setState] = useState("idle");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setState("sending");
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeForm({ "form-name": "reservation", ...Object.fromEntries(new FormData(form.current)) }),
-      });
-      setState("sent");
-    } catch {
-      setState("error");
-    }
-  };
+  const { form, state, handleSubmit } = useNetlifyForm("reservation");
 
   return (
     <Section id="reserve" label="Reservations" className="max-w-5xl mx-auto !px-5 sm:!px-8">
@@ -36,7 +19,7 @@ const Reserve = () => {
           <div className="absolute inset-0 adire-pattern opacity-[0.06]" aria-hidden="true" />
           <div className="relative">
             <div className="max-w-2xl">
-              <SectionHeader eyebrow="RESERVATIONS" title="Book a table." sub="Tell us when you'd like to come — we'll confirm by WhatsApp within the hour. Reservations are recommended for parties of four or more, but walk-ins are always welcome." />
+              <SectionHeader eyebrow="RESERVATIONS" title="Reserve your seat." sub="Tell us when you'd like to come — we'll confirm by WhatsApp within the hour. Reservations are recommended for parties of four or more, but walk-ins are always welcome." />
             </div>
 
             {state === "sent" ? (

@@ -17,7 +17,7 @@ const Testimonials = () => {
   return (
     <Section label="Testimonials">
       <ScrollReveal animation="fadeUp" className="mx-auto max-w-2xl text-center">
-        <SectionHeader eyebrow="GUEST REVIEWS" title="What our guests say." sub="Real feedback from people who have dined with us. No curated endorsements — just honest experiences." />
+        <SectionHeader eyebrow="GUEST REVIEWS" title="Rated 4.9 by the people who dine here." sub="Real feedback from guests who have experienced ZestHaven firsthand. No curated endorsements — just honest praise." />
       </ScrollReveal>
 
       <ScrollReveal animation="fadeUpStagger" className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" as="div">

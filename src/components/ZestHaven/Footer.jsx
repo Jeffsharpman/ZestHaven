@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { SocialIcons } from "./SocialIcons";
 import useSmoothScroll from "../../hooks/useSmoothScroll";
 import Button from "../UI/Button";
+import NavLink from "../UI/NavLink";
 import Eyebrow from "../UI/Eyebrow";
 import Logo from "../UI/Logo";
 import NAV from "../UI/NavItem";
@@ -53,13 +54,7 @@ const Footer = () => {
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {NAV.map(([label, href]) => (
                 <li key={href}>
-                  <a
-                    href={href}
-                    onClick={handleAnchorClick}
-                    className="hover:text-gold"
-                  >
-                    {label}
-                  </a>
+                  <NavLink href={href} onClick={handleAnchorClick}>{label}</NavLink>
                 </li>
               ))}
             </ul>
